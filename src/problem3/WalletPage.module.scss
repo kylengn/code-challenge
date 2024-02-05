@@ -1,0 +1,17 @@
+.row {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.container {
+  padding: 20px;
+
+  .header {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .content {
+    margin-top: 10px;
+  }
+}
