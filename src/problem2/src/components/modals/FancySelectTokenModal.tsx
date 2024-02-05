@@ -67,7 +67,7 @@ export const FancySelectTokenModal = React.memo(
     const { tokens, suggestedTokens, isLoading } = useTokens()
 
     return (
-      <DialogContent className='sm:max-w-[425px]'>
+      <DialogContent className='rounded-xl sm:max-w-[425px]'>
         <DialogHeader>
           <DialogTitle>Select token</DialogTitle>
         </DialogHeader>
@@ -75,7 +75,7 @@ export const FancySelectTokenModal = React.memo(
           <LoadingSpinner />
         ) : (
           <div id='select-token' className='grid gap-4 py-4'>
-            <Command className='rounded-xl '>
+            <Command className='rounded-xl'>
               <CommandInput placeholder='Type a command or search...' />
               <CommandList>
                 <CommandEmpty>No results found.</CommandEmpty>

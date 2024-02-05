@@ -20,10 +20,10 @@ export const Home = () => {
 
   return (
     <Sheet>
-      <Card className='w-full max-w-screen-sm  rounded-2xl'>
+      <Card className='w-full max-w-screen-sm rounded-2xl'>
         <Tabs defaultValue='swap' className='w-full'>
           <div className='flex justify-between w-full'>
-            <TabsList className='grid w-1/2 grid-cols-3 h-full bg-transparent'>
+            <TabsList className='pl-2 md:pl-0 grid w-1/2 grid-cols-3 h-full bg-transparent'>
               <TabsTrigger
                 value='swap'
                 className='data-[state=active]:shadow-none data-[state=active]:bg-transparent'
@@ -89,7 +89,7 @@ export const Home = () => {
         </Tabs>
         <CardFooter className='flex justify-center w-full'>
           <SheetTrigger asChild>
-            <Button className='w-full rounded-2xl h-[6vh] text-2xl font-bold tracking-wide bg-gradient-to-l from-violet-800 to-violet-400 hover:shadow-lg hover:bg-primary hover:scale-[1.025] transition-all'>
+            <Button className='w-full rounded-2xl h-[6vh] text-xl font-bold tracking-wide bg-gradient-to-l from-violet-800 to-violet-400 hover:shadow-lg hover:bg-primary hover:scale-[1.025] transition-all'>
               Connect wallet
             </Button>
           </SheetTrigger>
@@ -101,7 +101,7 @@ export const Home = () => {
 
 export default function App() {
   return (
-    <main className='bg-slate-900 w-screen h-screen flex flex-col justify-center items-center'>
+    <main className='bg-slate-900 w-screen h-screen flex flex-col justify-center items-center px-2 overflow-hidden box-border'>
       <Home />
     </main>
   )
