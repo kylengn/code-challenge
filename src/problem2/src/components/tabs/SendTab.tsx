@@ -21,12 +21,6 @@ export const SendTab = ({
   value,
   fromCurrency,
   setFromCurrency,
-  toCurrency,
-  setToCurrency,
-  toggleSwap,
-  setToggleSwap,
-  toSelectedToken,
-  setToSelectedToken,
   fromSelectedToken,
   setFromSelectedToken
 }: ITabProps) => {

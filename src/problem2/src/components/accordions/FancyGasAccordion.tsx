@@ -19,12 +19,12 @@ export const FancyGasAccordion = ({
   toCurrency: number
 }) => {
   // TODO: Replace with real token amount
-  const [tokenAmount, setTokenAmount] = useState<number>(0)
+  const [tokenAmount] = useState<number>(0)
 
   const [equivalentToCurrencyAmt, setEquivalentToCurrencyAmt] =
     useState<number>(0)
 
-  const { exchangeRate, error } = useExchangeRate(fromSelectedToken, toCurrency)
+  const { exchangeRate } = useExchangeRate(fromSelectedToken, toCurrency)
 
   useEffect(() => {
     const newEquivalentToCurrencyAmt = tokenAmount * exchangeRate

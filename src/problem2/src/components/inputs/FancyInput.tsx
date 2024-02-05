@@ -43,7 +43,7 @@ export const FancyInput = React.memo(
     const { isLoading, tokens } = useTokens()
     const [activeTokenLogo, setActiveTokenLogo] = React.useState<string>('')
     const [modalOpen, setModalOpen] = React.useState<boolean>(false)
-    const { exchangeRate, error } = useExchangeRate(selectedToken, amount)
+    const { exchangeRate } = useExchangeRate(selectedToken!, amount!)
 
     useEffect(() => {
       const temp: any = tokens.find(token => token.label === selectedToken)
