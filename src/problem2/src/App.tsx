@@ -20,7 +20,7 @@ export const Home = () => {
 
   return (
     <Sheet>
-      <Card className='w-full max-w-screen-sm rounded-2xl'>
+      <Card className='w-full max-w-screen-sm rounded-2xl min-h-fit'>
         <Tabs defaultValue='swap' className='w-full'>
           <div className='flex justify-between w-full'>
             <TabsList className='pl-2 md:pl-0 grid w-1/2 grid-cols-3 h-full bg-transparent'>

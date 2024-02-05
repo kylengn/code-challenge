@@ -66,13 +66,20 @@ export const FancyInput = React.memo(
               <Input
                 type='number'
                 min={0}
+                step={0.1} // Add this to allow decimal values
                 id='amount'
                 placeholder='0'
                 className='border-none px-0 bg-transparent w-full text-4xl font-bold text-neutral-500 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0'
-                value={amount}
+                defaultValue={amount}
                 onChange={e => {
                   e.preventDefault()
-                  setAmount && setAmount(Number(e.target.value))
+                  const newValue = Number(e.target.value)
+                  setAmount && setAmount(amount === 0 ? newValue : newValue)
+                }}
+                onWheel={e => {
+                  e.preventDefault()
+                  const newValue = amount! + (e.deltaY < 0 ? 0.1 : 0)
+                  setAmount && setAmount(newValue)
                 }}
               />
             </div>
@@ -142,18 +149,28 @@ export const FancyInput = React.memo(
       return (
         <div className='flex flex-col justify-center w-full gap-4'>
           <div className='w-full flex item-center justify-center'>
-            <Input
-              type='number'
-              min={0}
-              id='amount'
-              placeholder='0'
-              className='border-none px-0 bg-transparent w-full text-4xl font-bold text-neutral-500 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0'
-              value={amount}
-              onChange={e => {
-                e.preventDefault()
-                setAmount && setAmount(Number(e.target.value))
-              }}
-            />
+            <div className='flex items-center w-full justify-center'>
+              <span className='text-6xl font-bold text-neutral-500'>$</span>
+              <Input
+                type='number'
+                min={0}
+                step={0.1} // Add this to allow decimal values
+                id='amount'
+                placeholder='0'
+                className='border-none px-0 bg-transparent w-full h-full text-6xl font-bold text-neutral-500 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0'
+                defaultValue={amount}
+                onChange={e => {
+                  e.preventDefault()
+                  const newValue = Number(e.target.value)
+                  setAmount && setAmount(amount === 0 ? newValue : newValue)
+                }}
+                onWheel={e => {
+                  e.preventDefault()
+                  const newValue = amount! + (e.deltaY < 0 ? 0.1 : 0)
+                  setAmount && setAmount(newValue)
+                }}
+              />
+            </div>
           </div>
           <div className='w-full flex item-center justify-center'>
             <Dialog
@@ -192,9 +209,8 @@ export const FancyInput = React.memo(
     return (
       <div
         className={cn(
-          'grid w-full h-[20vh] items-center gap-1.5 rounded-2xl border border-violet-500/50 shadow-sm bg-secondary p-4',
-          tab !== 'send' && 'h-[15vh]',
-          placeholder && 'h-fit'
+          'grid w-full h-[25vh] items-center gap-1.5 rounded-2xl border border-violet-500/50 shadow-sm bg-secondary p-4',
+          tab !== 'send' && 'h-fit'
         )}
       >
         <Label className='text-xs text-neutral-500' htmlFor='amount'>

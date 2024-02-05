@@ -35,9 +35,9 @@ export const SwapTab = ({
 }: ITabProps) => {
   return (
     <TabsContent value={value}>
-      <Card className='w-full border-none shadow-none relative'>
+      <Card className='w-full border-none shadow-none'>
         <CardContent>
-          <form>
+          <form className='w-full relative'>
             <div className='grid w-full items-center gap-1'>
               <div className='flex flex-col space-y-1.5'>
                 <FancyInput
@@ -52,7 +52,7 @@ export const SwapTab = ({
                   }
                 />
               </div>
-              <div className='absolute left-[46%] top-[38%] w-full'>
+              <div className='absolute left-[46%] top-[43%] w-full'>
                 <Button
                   variant='outline'
                   size='icon'
